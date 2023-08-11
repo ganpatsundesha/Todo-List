@@ -29,7 +29,7 @@ body {
     font-size: 16px;
     line-height: 1;
     color: #000;
-    padding: 15px 10px;
+    padding: 15px 45px 15px 10px;
     border: 2px solid #20a5e2;
     background: #fff;
     outline: none;
@@ -58,6 +58,9 @@ body {
     margin: 0;
 }
 
+.container ul li span {
+    word-wrap: break-word;
+}
 .container ul li {
     font-size: 16px;
     line-height: 1;

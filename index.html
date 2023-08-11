@@ -20,8 +20,9 @@
     <script src="js/script.js"></script>
     <script>
         $(document).ready(function(){
-            $('form').submit(function(){
-                if($('#input').val().length > 0){
+            $('form').submit(function(e){
+                e.preventDefault();
+                if($('#input').val().length > 0 && $('#input').val().trim() != '' ){
 
                     if($('#input').is('[class^=uq]')){
 
@@ -46,6 +47,7 @@
 
             $('.list').on('click', '.fa-trash', function(){
                 $(this).parent('li').fadeOut(200);
+                $('#input').val('')
             });
 
             $('.list').on('click', '.fa-check', function(){
