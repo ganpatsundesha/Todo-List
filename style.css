@@ -21,6 +21,7 @@ body {
     border-radius: 10px;
     padding: 30px 25px;
     overflow: auto;
+    position: relative;
 }
 
 .container input {
@@ -34,6 +35,17 @@ body {
     outline: none;
     border-radius: 10px;
     text-transform: capitalize;
+}
+
+.container button[type="submit"] {
+    background: none;
+    border: navajowhite;
+    font-size: 24px;
+    color: blueviolet;
+    position: absolute;
+    right: 40px;
+    top: 43px;
+    cursor: pointer;
 }
 
 .container input::placeholder {
