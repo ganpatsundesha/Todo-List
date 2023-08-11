@@ -14,15 +14,34 @@
             <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
         </form>
         <ul class="list"></ul>
+        <div id="result"></div>
     </div>
     <script src="js/code.jquery.com_jquery-3.7.0.min.js"></script>
     <script src="js/script.js"></script>
     <script>
         $(document).ready(function(){
             $('form').submit(function(){
-                var value = $('#input').val();
-                $('.list').append('<li>' + value + ' <i class="fa-solid fa-pen"></i> <i class="fa-solid fa-check"> </i> <i class="fa-solid fa-trash"></i> </li>');
-                $('#input').val('');
+                if($('#input').val().length > 0){
+
+                    if($('#input').is('[class^=uq]')){
+
+                        var uniqueClass = $('#input').attr('class');
+                        $("#"+uniqueClass).find("span").text($('#input').val());
+                        $('#input').val('')
+                        $("#input").removeClass(uniqueClass);
+                    
+                    }else{
+                    
+                        var randdomNumber = Math.floor(Math.random() * 99999) + 1;
+                        var value = $('#input').val();
+                        $('.list').append('<li id="uq'+randdomNumber+'"><span>' + value + '</span> <i class="fa-solid fa-pen"></i> <i class="fa-solid fa-check"> </i> <i class="fa-solid fa-trash"></i> </li>');
+                        $('#input').val('');
+                    
+                    }
+
+                }else {
+                    alert("First Add Tasks")
+                }
             });
 
             $('.list').on('click', '.fa-trash', function(){
@@ -34,7 +53,8 @@
             });
 
             $('.list').on('click', '.fa-pen', function(){
-                var changeVal = $(this).parent().text(); 
+                var changeVal = $(this).parent().find("span").text(); 
+                $('#input').attr('class', $(this).parent().attr('id'));
                 $('#input').val(changeVal);
             });
 
